@@ -39,6 +39,7 @@ should be called when you want to do something when one of the following events 
 - afterStep
 - afterInit
 - failed
+
 will receive the same game object as your inputFunction
 
 ### game.off(string event)
