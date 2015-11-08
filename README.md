@@ -23,12 +23,12 @@ should be called with an inputFunction that returns either
 "r", "l", "u" or "d" for right, left, up, down respectively.
 inputFunction will receive a game object as a parameter, with the following properties:
 
-`int width`
-`int height`
-`array grid`
-(Array of Arrays, with each parent array representing a row and containing another array of column fields)
-`array snake`
-(Array of objects: {x: xPosition, y: yPosition}. The earliest entry is the tail, the last the head.)
+    int width
+    int height
+    array grid
+        (Array of Arrays, with each parent array representing a row and containing another array of column fields)
+    array snake
+        (Array of objects: {x: xPosition, y: yPosition}. The earliest entry is the tail, the last the head.)
 
 changes made to this object will not result in changes to the game.
 
