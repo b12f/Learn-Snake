@@ -62,6 +62,7 @@ pauses the game
 
 will log all messages you provide it with to display under Log data, in case you want to display
 log data while showing the grid. Messages will be collected per gamestep and displayed as follows:
+
     message1 | message2 | message3[| nextmessage ]
 
 ### game.showGrid()
