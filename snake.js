@@ -16,8 +16,15 @@ module.exports = {
     init: function(x, y) {
         x = x<20?20:x;
         y = y<20?20:y;
+
         this.width = x;
         this.height = y;
+        this.givenHistory = [];
+        this.directionHistory = [];
+        this.currentLog = [];
+        this.lastDirection = "r";
+        this.snake = new Array(10);
+
         this.grid = Array.apply(null, (new Array(x))).map(function() {
             return Array.apply(null, (new Array(y))).map(function() { return 0; });
          });
@@ -29,11 +36,6 @@ module.exports = {
 
         this.spawnFruit();
         this.fireEvent("afterInit");
-
-        this.givenHistory = [];
-        this.directionHistory = [];
-        this.currentLog = [];
-        this.lastDirection = "r";
 
         this.showGrid();
 
