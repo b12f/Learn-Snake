@@ -8,7 +8,9 @@
 - Step event
 */
 
-var game = {
+
+
+module.exports = {
     width: 20,
     height: 20,
     updateTime: 20,
@@ -58,14 +60,17 @@ var game = {
         this.getInput = inputFunction;
     },
     start: function(){
-        this.gameInterval = setInterval(this.gameStep, this.updateTime);
+        var that = this;
+        this.gameInterval = setInterval(function(){
+            that.gameStep.apply(that);
+        }, this.updateTime);
     },
     pause: function(){
         clearInterval(this.gameInterval);
     },
     //Game Step
     gameStep: function(){
-        var that = game;
+        var that = this;
         that.fireEvent("beforeStep");
         nextDirection = that.getInput({
             width: that.width,
@@ -269,7 +274,4 @@ var game = {
     clear: function() {
       process.stdout.write('\u001B[2J\u001B[0;0f');
     }
-
 };
-
-exports.game = game;

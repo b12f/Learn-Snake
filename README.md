@@ -1,5 +1,5 @@
 # snake.js
-Snake game with solver API for JS beginners to learn programming.
+Snake game with solver API for JS beginners to learn programming. Start `node solvehere.js` to see a random function performing.
 
 ## Variables
 
