@@ -1,15 +1,3 @@
-/* Node snake */
-
-/* API:
-
-- Start function
-- Start event
-- End event
-- Step event
-*/
-
-
-
 module.exports = {
     width: 20,
     height: 20,
@@ -19,15 +7,15 @@ module.exports = {
     givenHistory: [],
     directionHistory: [],
     lastDirection: "r",
-    snake: Array(10),
+    snake: new Array(10),
     getInput: null,
     devMode: false,
     currentLog: [],
     gameInterval: null,
     // init board and snake
     init: function(x, y) {
-        var x = x<20?20:x;
-        var y = y<20?20:y;
+        x = x<20?20:x;
+        y = y<20?20:y;
         this.width = x;
         this.height = y;
         this.grid = Array.apply(null, Array(x)).map(function() {
@@ -98,18 +86,20 @@ module.exports = {
 
         var snakeHeadPos = that.getSnakeHeadPos();
 
+        var nextPos = {};
+
         switch(nextDirection){
             case "u":
-                var nextPos = { x: snakeHeadPos.x, y: (snakeHeadPos.y-1) };
+                nextPos = { x: snakeHeadPos.x, y: (snakeHeadPos.y-1) };
             break;
             case "d":
-                var nextPos = { x: snakeHeadPos.x, y: (snakeHeadPos.y+1) };
+                nextPos = { x: snakeHeadPos.x, y: (snakeHeadPos.y+1) };
             break;
             case "l":
-                var nextPos = { x: (snakeHeadPos.x-1), y: snakeHeadPos.y };
+                nextPos = { x: (snakeHeadPos.x-1), y: snakeHeadPos.y };
             break;
             case "r":
-                var nextPos = { x: (snakeHeadPos.x+1), y: snakeHeadPos.y };
+                nextPos = { x: (snakeHeadPos.x+1), y: snakeHeadPos.y };
             break;
         }
 
@@ -163,7 +153,7 @@ module.exports = {
         borderTop += "┓-I-O- Log data:";
         console.log(borderTop);
 
-        for(var i=0; i<this.height; i++){
+        for(i=0; i<this.height; i++){
             var row = "┃";
             for(var j=0; j<this.width; j++){
                 var state = this.checkState(j, i);
@@ -190,7 +180,7 @@ module.exports = {
                 row += "  ";
             }
 
-            var historyIndex = this.givenHistory.length-i-1;
+            historyIndex = this.givenHistory.length-i-1;
             if(this.givenHistory[historyIndex] !== undefined){
                 row += " "+this.givenHistory[historyIndex];
             }
@@ -210,7 +200,7 @@ module.exports = {
         }
 
         var borderBottom = "┗";
-        for(var i=0; i<this.width; i++){
+        for(i=0; i<this.width; i++){
             borderBottom += "━";
         }
         borderBottom += "┛";

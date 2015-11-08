@@ -1,9 +1,11 @@
+"use strict";
+
 var game = require('./snake');
 
 var solver = function(gameObject){
     var directions = ["u","d","l","r"];
     return directions[Math.floor(Math.random() * directions.length)];
-}
+};
 
 game.devMode = false;
 game.on( "failed" , function(){
