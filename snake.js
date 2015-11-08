@@ -18,8 +18,8 @@ module.exports = {
         y = y<20?20:y;
         this.width = x;
         this.height = y;
-        this.grid = Array.apply(null, Array(x)).map(function() {
-            return Array.apply(null, Array(y)).map(function() { return 0; });
+        this.grid = Array.apply(null, (new Array(x))).map(function() {
+            return Array.apply(null, (new Array(y))).map(function() { return 0; });
          });
 
         for(var i=0; i<this.snake.length;i++){
