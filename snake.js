@@ -127,6 +127,10 @@ module.exports = {
             that.fireEvent("afterStep");
             that.showGrid();
             that.logStep();
+            if(that.hasWon()){
+                console.log("You've won!");
+                that.pause();
+            }
         }
     },
     // Check state of position
@@ -234,6 +238,9 @@ module.exports = {
             });
         });
         return found;
+    },
+    hasWon: function(){
+        return this.snake.length >= this.width*this.height;
     },
     fireEvent: function(event){
         if(!Array.isArray(this.listeners[event])){
