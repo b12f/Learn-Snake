@@ -22,9 +22,10 @@ Should be called with an inputFunction that returns either "r", "l", "u" or "d" 
     int width
     int height
     array grid
-        (Array of Arrays, with each parent array representing a row and containing another array of column fields)
+        Array of Arrays, with each parent array representing a row and containing another array of column fields.
+	Fields will be either 0, 1 or 2, representing nothing, a piece of your snake and a piece of fruit respectively.
     array snake
-        (Array of objects: {x: xPosition, y: yPosition}. The earliest entry is the tail, the last the head.)
+        Array of objects: {x: xPosition, y: yPosition}. The earliest entry is the tail, the last the head.
 
 Changes made to this object will not result in changes to the game.
 
